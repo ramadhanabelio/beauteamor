@@ -1,20 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Beauteamor</title>
+    {{-- CSS Bootstrap --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {{-- Icon Bootstrap --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {{-- My CSS --}}
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <title>Beauteamor - Masuk</title>
 </head>
 
 <body>
-    <!-- Form Login -->
     <div class="container">
         <h4 class="text-center">Beauteamor</h4>
         <hr>
@@ -27,20 +28,20 @@
 
         <form method="POST" action="{{ route('auth.login') }}">
             @csrf
-            <div class="form-group">
-                <label for="username">Username</label>
+            <div class="form-group mb-3">
+                <label for="username" class="fw-bold mb-2">Username</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-user"></i></div>
+                        <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
                     </div>
                     <input type="text" class="form-control" placeholder="Masukkan Username" name="username" required>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
+            <div class="form-group mb-3">
+                <label for="password" class="fw-bold mb-2">Password</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-unlock-alt"></i></div>
+                        <div class="input-group-text"><i class="bi bi-key-fill"></i></div>
                     </div>
                     <input type="password" class="form-control" placeholder="Masukkan Password" name="password"
                         required>
@@ -51,10 +52,10 @@
         </form>
     </div>
 
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    {{-- JS Bootstrap --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

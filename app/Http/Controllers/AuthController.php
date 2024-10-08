@@ -22,7 +22,7 @@ class AuthController extends Controller
 
     public function userHome()
     {
-        return view('user.home');
+        return view('home');
     }
 
     public function adminHome()
@@ -72,7 +72,7 @@ class AuthController extends Controller
             if ($user->status == 'admin') {
                 return redirect('/admin/home');
             } elseif ($user->status == 'user') {
-                return redirect('/user/home');
+                return redirect('home');
             }
         }
 

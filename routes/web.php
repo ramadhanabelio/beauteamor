@@ -20,14 +20,17 @@ use App\Http\Controllers\ProductController;
 Route::get('/', function () {
     return redirect()->route('login');
 });
+Route::get('/', [AuthController::class, 'login'])->name('login');
+// Rute untuk mengotentikasi login
+Route::post('/auth/login', [AuthController::class, 'postLogin'])->name('auth.login');
+Route::get('/update-password/daus', [AuthController::class, 'updatePasswordForDaus'])->name('updatePasswordForDaus');
 
-// Rute untuk login dan registrasi
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
+// Rute untuk registrasi
+Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/auth/register', [AuthController::class, 'postRegister'])->name('postRegister');
 
 // Rute setelah login
-Route::get('/user/home', [AuthController::class, 'userHome'])->name('user.home');
+Route::get('/home', [AuthController::class, 'userHome'])->name('user.home');
 Route::get('/admin/home', [AuthController::class, 'adminHome'])->name('admin.home');
 
 // Product / Produk
@@ -43,13 +46,8 @@ Route::get('/admin/pemesanan/{id}/edit', [OrderController::class, 'edit'])->name
 Route::put('/admin/pemesanan/{id}', [OrderController::class, 'update'])->name('pemesanan.update');
 Route::delete('/admin/pemesanan/{id}', [OrderController::class, 'destroy'])->name('pemesanan.destroy');
 
-// Rute untuk mengotentikasi login
-Route::post('/auth/login', [AuthController::class, 'postLogin'])->name('auth.login');
-
 // Rute untuk logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::get('/update-password/daus', [AuthController::class, 'updatePasswordForDaus'])->name('updatePasswordForDaus');
 
 // Rute yang memerlukan autentikasi
 Route::middleware('auth')->group(function () {

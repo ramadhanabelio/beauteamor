@@ -20,7 +20,7 @@
     <div class="container">
         <h3 class="text-center mt-3 mb-5">HALAMAN REGISTRASI</h3>
         <div class="card p-5 mb-5">
-            <form method="POST" action="simpan_register.php">
+            <form method="POST" action="">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="user">Username</label>

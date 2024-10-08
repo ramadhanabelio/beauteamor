@@ -10,13 +10,13 @@
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
-    <title>Halaman Login</title>
+    <title>Beauteamor - Masuk</title>
 </head>
 
 <body>
     <!-- Form Login -->
     <div class="container">
-        <h4 class="text-center">FORM LOGIN</h4>
+        <h4 class="text-center">Beauteamor</h4>
         <hr>
 
         @if (session('failed'))

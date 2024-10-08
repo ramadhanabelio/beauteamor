@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 
 class LoginRegisterController extends Controller
 {
@@ -80,11 +81,9 @@ class LoginRegisterController extends Controller
 
     public function updatePasswordForDaus()
     {
-        // Mencari pengguna dengan username 'daus'
         $user = User::where('username', 'daus')->first();
 
         if ($user) {
-            // Memperbarui password dengan yang baru (hashed)
             $user->password = Hash::make('daus1234');
             $user->save();
 

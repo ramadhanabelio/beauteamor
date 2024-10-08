@@ -13,8 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        // Drop the existing table and recreate it with the desired structure
-        Schema::dropIfExists('users'); // Hati-hati, ini akan menghapus semua data!
+        Schema::dropIfExists('users');
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
@@ -26,8 +25,8 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->string('alamat');
             $table->string('hp');
-            $table->string('status'); // Menyimpan status sebagai admin/user
-            $table->timestamps(); // created_at dan updated_at
+            $table->string('status');
+            $table->timestamps();
         });
     }
 

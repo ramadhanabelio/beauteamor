@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LoginRegisterController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +22,13 @@ Route::get('/', function () {
 });
 
 // Rute untuk login dan registrasi
-Route::get('/login', [LoginRegisterController::class, 'login'])->name('login');
-Route::get('/auth/register', [LoginRegisterController::class, 'register'])->name('auth.register');
-Route::post('/auth/register', [LoginRegisterController::class, 'postRegister'])->name('postRegister');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
+Route::post('/auth/register', [AuthController::class, 'postRegister'])->name('postRegister');
 
 // Rute setelah login
-Route::get('/user/home', [LoginRegisterController::class, 'userHome'])->name('user.home');
-Route::get('/admin/home', [LoginRegisterController::class, 'adminHome'])->name('admin.home');
+Route::get('/user/home', [AuthController::class, 'userHome'])->name('user.home');
+Route::get('/admin/home', [AuthController::class, 'adminHome'])->name('admin.home');
 
 // Product / Produk
 Route::get('/produk', [ProductController::class, 'listProduk'])->name('produk.list');
@@ -44,12 +44,12 @@ Route::put('/admin/pemesanan/{id}', [OrderController::class, 'update'])->name('p
 Route::delete('/admin/pemesanan/{id}', [OrderController::class, 'destroy'])->name('pemesanan.destroy');
 
 // Rute untuk mengotentikasi login
-Route::post('/auth/login', [LoginRegisterController::class, 'postLogin'])->name('auth.login');
+Route::post('/auth/login', [AuthController::class, 'postLogin'])->name('auth.login');
 
 // Rute untuk logout
-Route::post('/logout', [LoginRegisterController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/update-password/daus', [LoginRegisterController::class, 'updatePasswordForDaus'])->name('updatePasswordForDaus');
+Route::get('/update-password/daus', [AuthController::class, 'updatePasswordForDaus'])->name('updatePasswordForDaus');
 
 // Rute yang memerlukan autentikasi
 Route::middleware('auth')->group(function () {
@@ -62,6 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/produk/{id}', [ProductController::class, 'destroy'])->name('produk.destroy');
 
     // Rute setelah login
-    Route::get('/user/home', [LoginRegisterController::class, 'userHome'])->name('user.home');
-    Route::get('/admin/home', [LoginRegisterController::class, 'adminHome'])->name('admin.home');
+    Route::get('/user/home', [AuthController::class, 'userHome'])->name('user.home');
+    Route::get('/admin/home', [AuthController::class, 'adminHome'])->name('admin.home');
 });

@@ -15,11 +15,11 @@ return new class extends Migration {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('nama_produk');
-            $table->enum('jenis_produk', ['Kosmetik', 'Skincare']); // Jenis produk: Kosmetik atau Skincare
-            $table->integer('stok'); // Stok produk
-            $table->decimal('harga', 10, 2); // Harga produk dengan 2 angka desimal
-            $table->string('gambar'); // URL atau path untuk gambar produk
-            $table->timestamps(); // Timestamps untuk created_at dan updated_at
+            $table->enum('jenis_produk', ['Kosmetik', 'Skincare']);
+            $table->integer('stok');
+            $table->decimal('harga', 10, 2);
+            $table->string('gambar');
+            $table->timestamps();
         });
     }
 
